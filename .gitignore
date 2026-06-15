@@ -1,0 +1,11 @@
+node_modules/
+.env
+dev.db
+dev.db.bak
+.session.json
+.wwebjs_auth/
+.wwebjs_cache/
+db_dump.json
+export.js
+import.js
+.DS_Store

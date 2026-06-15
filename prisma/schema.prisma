@@ -1,0 +1,174 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  nama     String
+  role     String @default("ADMIN_HUMAS") // SUPER_ADMIN, ADMIN_KESISWAAN, ADMIN_HUMAS, ADMIN_KURIKULUM, ADMIN_SARPRAS
+}
+
+model Sekolah {
+  id         Int     @id @default(1)
+  nama       String
+  npsn       String
+  alamat     String
+  telepon    String
+  email      String
+  akreditasi String
+  koordinatX Float
+  koordinatY Float
+  sejarah    String  @default("")
+  visi       String  @default("")
+  misi       String  @default("")
+  fotoAkreditasi String?
+  runningText String @default("Selamat datang di website resmi SMA Negeri 1 Yosowilangun (SMAYO)!")
+}
+model Berita {
+  id        Int      @id @default(autoincrement())
+  kategori  String
+  judul     String
+  tanggal   DateTime
+  ringkasan String
+  konten    String
+  gambar    String?
+  target    String   @default("SEMUA")
+}
+
+model Fasilitas {
+  id        Int    @id @default(autoincrement())
+  nama      String
+  deskripsi String
+  ikon      String
+  foto      String?
+}
+
+model Guru {
+  id      Int     @id @default(autoincrement())
+  nama    String
+  mapel   String
+  telepon String?
+  foto    String?
+}
+
+model Ekstrakurikuler {
+  id       Int    @id @default(autoincrement())
+  nama     String
+  kategori String
+  foto     String?
+}
+
+model Unduhan {
+  id     Int    @id @default(autoincrement())
+  nama   String
+  tipe   String
+  ukuran String
+  link   String
+}
+
+model Piala {
+  id    Int    @id @default(autoincrement())
+  nama  String
+  tahun String
+  foto  String?
+}
+
+model Carousel {
+  id        Int    @id @default(autoincrement())
+  gambar    String
+  judul     String
+  deskripsi String
+}
+
+model InfoPenting {
+  id      Int      @id @default(autoincrement())
+  tanggal DateTime
+  judul   String
+  link    String?
+  target  String   @default("SEMUA")
+}
+
+model KaryaSiswa {
+  id        Int      @id @default(autoincrement())
+  judul     String
+  siswa     String
+  kelas     String
+  deskripsi String
+  foto      String
+}
+
+model BukuTamu {
+  id      Int      @id @default(autoincrement())
+  nama    String
+  email   String?
+  wa      String?
+  pesan   String
+  tanggal DateTime @default(now())
+}
+
+model Siswa {
+  id      Int    @id @default(autoincrement())
+  nama    String
+  nisn    String
+  kelas   String
+  telepon String?
+}
+
+model OrangTua {
+  id        Int    @id @default(autoincrement())
+  nama      String
+  namaSiswa String
+  telepon   String?
+}
+
+model TracerStudy {
+  id       Int    @id @default(autoincrement())
+  nama     String
+  tahun    String
+  status   String
+  instansi String
+}
+
+model Galeri {
+  id        Int    @id @default(autoincrement())
+  judul     String
+  tipe      String // "FOTO" atau "VIDEO"
+  url       String // Link gambar lokal atau link YouTube
+  thumbnail String? // Untuk video
+}
+
+model KalenderAkademik {
+  id      Int      @id @default(autoincrement())
+  tanggal DateTime
+  agenda  String
+}
+
+model Absensi {
+  id       Int    @id @default(autoincrement())
+  nisn     String
+  semester String
+  hadir    Int    @default(0)
+  izin     Int    @default(0)
+  sakit    Int    @default(0)
+  alpa     Int    @default(0)
+}
+
+model JadwalPelajaran {
+  id         Int    @id @default(autoincrement())
+  kelas      String
+  hari       String
+  mapel      String
+  guru       String
+  jamMulai   String
+  jamSelesai String
+}

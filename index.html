@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Situs Resmi SMA Negeri 1 Yosowilangun. Unggul dalam mutu, berpijak pada iman dan takwa.">
+    <title>SMA Negeri 1 Yosowilangun | SMAYO</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navbar Container -->
+    <header id="navbar-container"></header>
+
+    <!-- Main Content Container -->
+    <main id="app-root">
+        <!-- SPA Pages will be injected here -->
+        <div class="page-loader">
+            <div class="spinner"></div>
+        </div>
+    </main>
+
+    <!-- Footer Container -->
+    <footer id="footer-container"></footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Core App Logic -->
+    <script src="js/data.js" type="module"></script>
+    <script src="js/components/navbar.js" type="module"></script>
+    <script src="js/components/footer.js" type="module"></script>
+
+    <!-- Pages -->
+    <script src="js/pages/home.js" type="module"></script>
+    <script src="js/pages/profil.js" type="module"></script>
+    <script src="js/pages/akreditasi.js" type="module"></script>
+    <script src="js/pages/fasilitas.js" type="module"></script>
+    <script src="js/pages/akademik.js" type="module"></script>
+    <script src="js/pages/berita.js" type="module"></script>
+    <script src="js/pages/unduhan.js" type="module"></script>
+    <script src="js/pages/kontak.js" type="module"></script>
+    <script src="js/pages/alumni.js" type="module"></script>
+    <script src="js/pages/blog.js" type="module"></script>
+    <script src="js/pages/admin.js" type="module"></script>
+
+    <!-- Router & App Init -->
+    <script src="js/app.js" type="module"></script>
+</body>
+
+</html>
