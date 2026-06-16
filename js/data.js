@@ -54,21 +54,21 @@ try {
 
     siteData = {
         sekolah: {
-            ...sekolah,
-            koordinat: sekolah ? [sekolah.koordinatX, sekolah.koordinatY] : [-8.212041, 113.298285]
+            ...(sekolah.error ? {} : sekolah),
+            koordinat: (sekolah && !sekolah.error) ? [sekolah.koordinatX, sekolah.koordinatY] : [-8.212041, 113.298285]
         },
-        berita: berita || [],
-        fasilitas: fasilitas || [],
-        guru: guru || [],
-        ekstrakurikuler: ekstrakurikuler || [],
-        unduhan: unduhan || [],
-        piala: piala || [],
-        carousel: carousel || [],
-        infoPenting: infoPenting || [],
-        galeri: galeri || [],
-        kalenderAkademik: kalenderAkademik || [],
-        karyaSiswa: karyaSiswa || [],
-        bukuTamu: bukuTamu || []
+        berita: Array.isArray(berita) ? berita : [],
+        fasilitas: Array.isArray(fasilitas) ? fasilitas : [],
+        guru: Array.isArray(guru) ? guru : [],
+        ekstrakurikuler: Array.isArray(ekstrakurikuler) ? ekstrakurikuler : [],
+        unduhan: Array.isArray(unduhan) ? unduhan : [],
+        piala: Array.isArray(piala) ? piala : [],
+        carousel: Array.isArray(carousel) ? carousel : [],
+        infoPenting: Array.isArray(infoPenting) ? infoPenting : [],
+        galeri: Array.isArray(galeri) ? galeri : [],
+        kalenderAkademik: Array.isArray(kalenderAkademik) ? kalenderAkademik : [],
+        karyaSiswa: Array.isArray(karyaSiswa) ? karyaSiswa : [],
+        bukuTamu: Array.isArray(bukuTamu) ? bukuTamu : []
     };
 } catch (error) {
     console.error("Gagal mengambil data dari server:", error);
