@@ -54,6 +54,11 @@ const ALL_ADMINS = ['ADMIN_HUMAS', 'ADMIN_KESISWAAN', 'ADMIN_KURIKULUM', 'ADMIN_
 
 // ================= API ROUTES =================
 
+// --- Health Check / Ping ---
+app.get('/api/ping', (req, res) => {
+    res.status(200).json({ message: 'PONG! Mesin Vercel hidup dan sehat!', url: req.url });
+});
+
 // --- Auth (Google OAuth) ---
 app.post('/api/auth/google', async (req, res) => {
     try {
