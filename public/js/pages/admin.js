@@ -37,13 +37,6 @@ export function renderAdmin() {
                 
                 <div id="google-signin-btn" style="display: flex; justify-content: center; margin-bottom: var(--space-6);"></div>
 
-                <div style="margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px dashed var(--color-border); text-align: left;">
-                    <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 8px;"><i class="ph ph-code"></i> Developer Mode (Simulasi Google Login):</p>
-                    <form id="mock-login-form" style="display: flex; gap: 8px;">
-                        <input type="email" id="mock-email" class="form-control" placeholder="Email Google Anda" value="sman01yosowilangun@gmail.com" required style="padding: 8px;">
-                        <button type="submit" class="btn btn-primary" style="padding: 8px 16px;">Simulasi</button>
-                    </form>
-                </div>
             </div>
         `;
     }
@@ -229,32 +222,7 @@ export function setupAdminEvents() {
             );
         }
 
-        // Mock Login Handler (Developer Mode)
-        const mockForm = document.getElementById('mock-login-form');
-        if (mockForm) {
-            mockForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const mockEmail = document.getElementById('mock-email').value;
-                try {
-                    const res = await fetch(`${API_URL}/auth/google`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ emailMock: mockEmail })
-                    });
-                    const data = await res.json();
-                    if (res.ok) {
-                        sessionStorage.setItem('jwt_token', data.token);
-                        sessionStorage.setItem('jwt_role', data.role);
-                        sessionStorage.setItem('jwt_username', data.nama);
-                        window.location.reload();
-                    } else {
-                        alert('Login Gagal: ' + data.error);
-                    }
-                } catch (err) {
-                    alert('Kesalahan jaringan: ' + err.message);
-                }
-            });
-        }
+
         return;
     }
 
