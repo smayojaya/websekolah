@@ -23,15 +23,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files untuk frontend (Aplikasi Utama)
-app.use('/css', express.static(path.join(__dirname, 'css')));
-app.use('/js', express.static(path.join(__dirname, 'js')));
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
-
-// Route untuk root URL (Frontend)
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
+// Serve static files dinonaktifkan: ditangani secara otomatis oleh Vercel CDN.
 
 // JWT Auth Middleware
 const authenticateToken = (req, res, next) => {
