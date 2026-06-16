@@ -30,7 +30,7 @@ export function renderProfil() {
                         </p>
                     </div>
                     <div>
-                        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&q=80&w=800" alt="Gedung Sekolah" style="border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
+                        <img src="${siteData.sekolah.fotoProfil || 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&q=80&w=800'}" alt="Gedung Sekolah" style="border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); width: 100%; height: auto; object-fit: cover;">
                     </div>
                 </div>
 

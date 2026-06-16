@@ -32,6 +32,7 @@ model Sekolah {
   visi       String  @default("")
   misi       String  @default("")
   fotoAkreditasi String?
+  fotoProfil     String?
   runningText String @default("Selamat datang di website resmi SMA Negeri 1 Yosowilangun (SMAYO)!")
 }
 model Berita {

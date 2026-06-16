@@ -448,6 +448,10 @@ export function setupAdminEvents() {
                                 <input type="text" id="s_running_text" class="form-control" value="${data.runningText || ''}">
                             </div>
                             <div class="form-group">
+                                <label>URL Foto Gedung / Profil (Opsional)</label>
+                                <input type="text" id="s_foto_profil" class="form-control" value="${data.fotoProfil || ''}" placeholder="https://...">
+                            </div>
+                            <div class="form-group">
                                 <label>URL Foto Sertifikat Akreditasi (Opsional)</label>
                                 <input type="text" id="s_foto_akreditasi" class="form-control" value="${data.fotoAkreditasi || ''}" placeholder="https://...">
                             </div>
@@ -466,6 +470,7 @@ export function setupAdminEvents() {
                             misi: document.getElementById('s_misi').value,
                             sejarah: document.getElementById('s_sejarah').value,
                             fotoAkreditasi: document.getElementById('s_foto_akreditasi').value,
+                            fotoProfil: document.getElementById('s_foto_profil').value,
                             runningText: document.getElementById('s_running_text').value
                         };
                         try {

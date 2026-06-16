@@ -154,7 +154,21 @@ app.put('/api/sekolah', authenticateToken, authorizeRoles(...ALL_ADMINS), async 
         
         const result = await prisma.sekolah.upsert({
             where: { id: 1 },
-            update: data,
+            update: {
+                nama: data.nama,
+                npsn: data.npsn,
+                telepon: data.telepon,
+                email: data.email,
+                alamat: data.alamat,
+                visi: data.visi,
+                misi: data.misi,
+                sejarah: data.sejarah,
+                fotoAkreditasi: data.fotoAkreditasi,
+                fotoProfil: data.fotoProfil,
+                runningText: data.runningText,
+                koordinatX: data.koordinatX,
+                koordinatY: data.koordinatY
+            },
             create: { 
                 id: 1, 
                 akreditasi: "A",
